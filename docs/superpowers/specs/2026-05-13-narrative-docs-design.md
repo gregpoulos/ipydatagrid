@@ -10,17 +10,18 @@ Add a narrative documentation guide to the ipydatagrid GitHub repo to help new u
 
 ## Structure
 
-Four Markdown files in a new `docs/` directory:
+Five Markdown files in a new `docs/` directory:
 
 ```
 docs/
 ├── overview.md
 ├── getting-started.md
 ├── renderers.md
-└── interactivity.md
+├── interactivity.md
+└── styling.md
 ```
 
-The `docs/superpowers/` subdirectory is internal tooling and should be excluded from the narrative docs.
+The `docs/superpowers/` subdirectory is internal tooling and must be deleted before the PR is opened. It should not appear in `.gitignore` or anywhere in the submitted diff.
 
 ### overview.md
 
@@ -60,14 +61,25 @@ References: `BoolRenderer.ipynb`, `HtmlRenderer.ipynb`, `HyperlinkRenderer.ipynb
 
 ### interactivity.md
 
-Covers selections and editing:
+Covers selections and filtering/transforms:
 - Selection modes: `'row'`, `'column'`, `'cell'`, `'none'`
 - Programmatic selection: `select()`, `clear_selection()`
 - Reading selections: `selected_cells`, `selected_cell_values`, `SelectionHelper`
-- Editable mode: `editable=True`, `set_cell_value()`, `get_cell_value()`
-- Event callbacks: `on_cell_change()`, `on_cell_click()`
+- Transforms: applying filter and sort transforms via `transform()`, reverting with `revert()`
+- `get_visible_data()` — reading the current filtered/sorted view as a DataFrame
 
-References: `Selections.ipynb`, `CellEditing.ipynb`
+References: `Selections.ipynb`
+
+### styling.md
+
+Covers visual customization:
+- Themes: using the built-in light/dark themes
+- `grid_style` dict: background colors, grid line colors, header colors, selection colors, cursor colors, scroll shadow
+- `horizontal_stripes` and `vertical_stripes`
+- Column widths: `column_widths` dict, `auto_fit_columns`, `auto_fit_params`
+- `base_row_size`, `base_column_size`, `base_row_header_size`, `base_column_header_size`
+
+References: `Themes.ipynb`, `Column Width Auto-Fit.ipynb`
 
 ## README change
 
@@ -79,15 +91,14 @@ Add a short "Documentation" section after the existing "Usage and Examples" sect
 - [Overview](docs/overview.md) — how ipydatagrid works
 - [Getting Started](docs/getting-started.md)
 - [Renderers](docs/renderers.md)
-- [Interactivity: Selections & Editing](docs/interactivity.md)
+- [Interactivity: Selections & Filtering](docs/interactivity.md)
+- [Styling](docs/styling.md)
 ```
 
 ## Out of scope
 
 The following topics are acknowledged in `overview.md` but do not get dedicated pages in this initial pass:
-- Styling properties (`grid_style`, themes, stripes)
-- Column width and auto-fit
-- Transforms / filtering / sorting
+- Editable mode and cell change callbacks
 - Hierarchical data (nested hierarchies, trees)
 - Streaming / live data updates
 

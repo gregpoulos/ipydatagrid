@@ -37,6 +37,14 @@ Conditional formatting powered by Vega Expressions
 
 Tutorial and example notebooks can be found in the `/examples` directory.
 
+## Documentation
+
+- [Overview](docs/overview.md) — how ipydatagrid works
+- [Getting Started](docs/getting-started.md)
+- [Renderers](docs/renderers.md)
+- [Interactivity: Selections & Filtering](docs/interactivity.md)
+- [Styling](docs/styling.md)
+
 ## Installation
 
 If using JupyterLab, `ipydatagrid` requires JupyterLab version 3 or higher.
